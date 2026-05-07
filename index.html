@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seth M. Tufail Foundry - Premium Agricultural Machinery</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Top Header -->
+      <header>
+        <div class="logo-area">
+          <h1 class="urdu">سیٹھ محمد طفیل فاؤنڈری</h1>
+          <p>Seth M. Tufail Foundry (Pvt.) Ltd.</p>
+        </div>
+        <div class="reg-no">Govt. Reg No: 37397</div>
+      </header>
+
+      <!-- Main Content Area -->
+      <main id="app-content">
+        <!-- Home Screen by Default -->
+        <div id="home-screen" class="animate-fade">
+          
+          <!-- Hadith Card -->
+          <div class="hadith-card animate-fade">
+            <p class="urdu hadith-text">
+              "جو شخص حلال روزی کماتا ہے، اللہ تعالیٰ اس کے رزق میں برکت عطا فرماتا ہے۔"
+            </p>
+          </div>
+
+          <!-- Hero Section -->
+          <section class="hero animate-fade" style="animation-delay: 0.2s">
+            <div class="hero-banner">
+              <span class="star-badge">NO. 1 FLAGSHIP PRODUCT</span>
+              <h2 class="urdu">سیٹھ محمد طفیل ٹوکہ</h2>
+              <p>The Original Chaff Cutter Machine</p>
+              <img src="https://img.freepik.com/free-vector/red-tractor-flat-style_1308-41006.jpg" alt="Toka Machine" class="hero-image">
+              <button class="btn-primary urdu">ابھی آرڈر کریں</button>
+            </div>
+          </section>
+
+          <!-- Featured Categories -->
+          <section class="featured-products animate-fade" style="animation-delay: 0.4s">
+            <div class="section-title">
+              <span>Our Products</span>
+              <span class="urdu">ہماری مصنوعات</span>
+            </div>
+            <div class="product-grid">
+              <div class="product-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/3241/3241198.png" alt="Wheat Thresher">
+                <h3>Wheat Thresher 5 FT</h3>
+                <p class="price">Rs. 1,050,000</p>
+              </div>
+              <div class="product-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/2900/2900350.png" alt="Rotavator">
+                <h3>Rotavator</h3>
+                <p class="price">Rs. 360,000</p>
+              </div>
+              <div class="product-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/3074/3074693.png" alt="Water Pump">
+                <h3>12V Water Pump</h3>
+                <p class="price">Rs. 15,900</p>
+              </div>
+              <div class="product-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/1000/1000171.png" alt="Electric Motor">
+                <h3>2 HP Motor</h3>
+                <p class="price">Rs. 28,500</p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <!-- Bottom Navigation -->
+      <nav class="bottom-nav">
+        <div class="nav-item active" onclick="showScreen('home')">
+          <i class="fas fa-home"></i>
+          <span>Home</span>
+        </div>
+        <div class="nav-item" onclick="showScreen('products')">
+          <i class="fas fa-cog"></i>
+          <span>Products</span>
+        </div>
+        <div class="nav-item" onclick="showScreen('dealers')">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Dealers</span>
+        </div>
+        <div class="nav-item" onclick="showScreen('about')">
+          <i class="fas fa-info-circle"></i>
+          <span>About</span>
+        </div>
+      </nav>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

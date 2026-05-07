@@ -1,0 +1,257 @@
+:root {
+  --primary-red: #CC0000;
+  --secondary-red: #990000;
+  --white: #FFFFFF;
+  --black: #1A1A1A;
+  --gold: #D4AF37;
+  --light-grey: #F8F8F8;
+  --dark-grey: #333333;
+  --font-urdu: 'Jameel Noori Nastaleeq', serif;
+  --font-english: 'Poppins', sans-serif;
+  --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  --glass: rgba(255, 255, 255, 0.9);
+}
+
+@font-face {
+  font-family: 'Jameel Noori Nastaleeq';
+  src: url('https://cdn.jsdelivr.net/gh/tariq-abdullah/urdu-web-font-CDN/JameelNooriNastaleeq.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-english);
+  background-color: var(--light-grey);
+  color: var(--black);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+.urdu {
+  font-family: var(--font-urdu);
+  direction: rtl;
+}
+
+/* App Container (Mobile View Simulation) */
+.app-container {
+  max-width: 450px;
+  margin: 0 auto;
+  background: var(--white);
+  min-height: 100vh;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+header {
+  background: var(--primary-red);
+  color: var(--white);
+  padding: 1.5rem 1rem;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 4px solid var(--gold);
+}
+
+.logo-area {
+  margin-bottom: 0.5rem;
+}
+
+.reg-no {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  background: var(--gold);
+  color: var(--black);
+  padding: 2px 10px;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+/* Hadith Card */
+.hadith-card {
+  margin: 1.5rem 1rem;
+  padding: 2rem 1.5rem;
+  background: var(--white);
+  border: 2px solid var(--gold);
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.hadith-card::before {
+  content: '﷽';
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--gold);
+  font-size: 1.2rem;
+}
+
+.hadith-text {
+  font-size: 1.6rem;
+  line-height: 2.2;
+  color: var(--primary-red);
+  margin-top: 1rem;
+}
+
+/* Hero Section */
+.hero {
+  padding: 1rem;
+}
+
+.hero-banner {
+  background: linear-gradient(135deg, var(--primary-red), var(--secondary-red));
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  color: var(--white);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-banner h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-banner .star-badge {
+  background: var(--gold);
+  color: var(--black);
+  padding: 5px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 250px;
+  margin: 1rem auto;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+  transition: transform 0.3s ease;
+}
+
+.hero-image:hover {
+  transform: scale(1.05);
+}
+
+/* Section Titles */
+.section-title {
+  padding: 1rem;
+  font-weight: 800;
+  font-size: 1.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section-title.urdu {
+  font-size: 1.8rem;
+}
+
+/* Grid Layout */
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.product-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  border: 1px solid #eee;
+  text-align: center;
+}
+
+.product-card img {
+  width: 80%;
+  margin-bottom: 0.5rem;
+}
+
+.product-card h3 {
+  font-size: 0.9rem;
+  margin-bottom: 0.2rem;
+}
+
+.product-card .price {
+  color: var(--primary-red);
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* Navigation Bar */
+.bottom-nav {
+  position: sticky;
+  bottom: 0;
+  background: var(--white);
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem 0;
+  border-top: 1px solid #eee;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--dark-grey);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.nav-item.active {
+  color: var(--primary-red);
+}
+
+.nav-item i {
+  font-size: 1.4rem;
+  margin-bottom: 2px;
+}
+
+/* Buttons */
+.btn-primary {
+  background: var(--primary-red);
+  color: var(--white);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade {
+  animation: fadeIn 0.6s ease forwards;
+}

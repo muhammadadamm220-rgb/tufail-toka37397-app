@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #CC0000;
+  --color-secondary: #D4AF37;
+  --color-accent: #000000;
+  --font-urdu: "Noto Nastaliq Urdu", serif;
+  --font-english: "Poppins", sans-serif;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --primary: #CC0000;
+  --secondary: #D4AF37;
+  --accent: #000000;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-english);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.urdu {
+  font-family: var(--font-urdu);
+  direction: rtl;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a00000;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Traditional Pakistani Border Style */
+.pakistani-border {
+  border: 4px double var(--secondary);
+  padding: 1rem;
+  position: relative;
+}
+
+.pakistani-border::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  border: 1px solid var(--primary);
+  pointer-events: none;
+}
