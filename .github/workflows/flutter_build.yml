@@ -28,6 +28,7 @@ jobs:
       - name: Install dependencies
         run: |
           cd mobile
+          flutter create . --overwrite
           flutter pub get
           
       - name: Build APK
