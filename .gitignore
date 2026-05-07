@@ -12,6 +12,10 @@ firebase-debug.log*
 .runtimeconfig.json
 firestore-debug.log*
 ui-debug.log*
+google-services.json
+GoogleService-Info.plist
+ios/Runner/GoogleService-Info.plist
+android/app/google-services.json
 
 # Flutter/Dart
 .dart_tool/
