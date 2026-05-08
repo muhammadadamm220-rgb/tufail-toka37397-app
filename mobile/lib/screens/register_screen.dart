@@ -53,15 +53,21 @@ class _RegisterScreenState extends State<RegisterScreen> {
           padding: const EdgeInsets.all(24.0),
           child: Column(
             children: [
+              Image.network(
+                'https://sethtufail.com/cdn/shop/files/Logo_Sending.png',
+                height: 100,
+              ),
+              const SizedBox(height: 24),
               const Text(
                 'CREATE ACCOUNT',
-                style: TextStyle(fontSize: 28, fontWeight: FontWeight.w900, color: Color(0xFFCC0000)),
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.w900, color: Color(0xFFCC0000)),
               ),
               const Text(
                 'Join the Seth M. Tufail farming community',
-                style: TextStyle(color: Colors.grey),
+                textAlign: TextAlign.center,
+                style: TextStyle(color: Colors.grey, fontSize: 13),
               ),
-              const SizedBox(height: 40),
+              const SizedBox(height: 32),
               TextField(
                 controller: _nameController,
                 decoration: InputDecoration(
