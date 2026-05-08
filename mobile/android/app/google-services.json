@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "389535104775",
+    "project_id": "tufailtoka37397-v3",
+    "storage_bucket": "tufailtoka37397-v3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:389535104775:android:e74f0a5ee327c4e442cfa2",
+        "android_client_info": {
+          "package_name": "com.tufail.toka_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "389535104775-0u7tqqbvbj242mk7rtfihe9j9kg16op5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvFVkRWRTpp5q8QJLhfAGTIS7pu8aFiD8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "389535104775-0u7tqqbvbj242mk7rtfihe9j9kg16op5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
