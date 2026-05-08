@@ -51,7 +51,7 @@ class HomeScreen extends StatelessWidget {
             radius: 20,
             child: Padding(
               padding: const EdgeInsets.all(2),
-              child: Image.network('https://sethtufail.com/cdn/shop/files/Logo_Sending.png'),
+              child: Image.network('https://tufailtoka37397-v3.web.app/logo.png'),
             ),
           ),
           const SizedBox(width: 12),

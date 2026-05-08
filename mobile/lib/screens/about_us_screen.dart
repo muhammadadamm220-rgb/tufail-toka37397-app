@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
 class AboutUsScreen extends StatelessWidget {
@@ -8,7 +7,7 @@ class AboutUsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const String logoUrl = 'https://sethtufail.com/cdn/shop/files/Logo_Sending.png';
+    const String logoUrl = 'https://tufailtoka37397-v3.web.app/logo.png';
 
     return Scaffold(
       appBar: AppBar(
@@ -31,7 +30,7 @@ class AboutUsScreen extends StatelessWidget {
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900, color: Color(0xFFCC0000)),
                   ),
                   const Text(
-                    'GOVERNMENT REGISTRATION NO: 37397',
+                    'PAKISTAN\'S NO. 1 BRAND | REG: 37397',
                     style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: Color(0xFFD4AF37), letterSpacing: 1),
                   ),
                 ],
@@ -44,33 +43,42 @@ class AboutUsScreen extends StatelessWidget {
                 children: [
                   _buildSectionTitle('Our Legacy', 'ہماری پہچان'),
                   const Text(
-                    'Since 1980, Seth M. Tufail Foundry has been the pioneer of agricultural machinery in Pakistan. Based in Faisalabad, we manufacture the nation\'s No. 1 Chaff Cutters (Toka), Wheat Threshers, and Rotavators.',
+                    'Starting from a small workshop in Faisalabad, Seth M. Tufail Foundry (Pvt.) Ltd. has grown into a cornerstone of Pakistani agriculture. Our commitment to the farmer\'s success has driven us to perfect the Chaff Cutter (Toka) and Wheat Thresher over four decades.',
                     style: TextStyle(fontSize: 15, height: 1.6),
                   ).animate().fadeIn(duration: 600.ms),
+                  const SizedBox(height: 24),
+                  _buildMilestone('1980', 'Founded by Seth Muhammad Tufail in Faisalabad.'),
+                  _buildMilestone('1990', 'Launch of the first high-capacity Wheat Thresher.'),
+                  _buildMilestone('2005', 'Nationwide expansion of dealer network.'),
+                  _buildMilestone('Today', 'Pakistan\'s leading agricultural machinery brand.'),
                   const SizedBox(height: 32),
-                  _buildSectionTitle('Quality Assurance', 'معیار کی ضمانت'),
-                  const Text(
-                    'Every machine with the 37397 registration mark is a symbol of trust, durability, and high performance. We use premium hardened steel and state-of-the-art manufacturing processes.',
-                    style: TextStyle(fontSize: 15, height: 1.6),
-                  ).animate().fadeIn(delay: 200.ms, duration: 600.ms),
-                  const SizedBox(height: 40),
                   Container(
-                    padding: const EdgeInsets.all(24),
+                    padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
-                      color: Colors.grey[100],
-                      borderRadius: BorderRadius.circular(20),
-                      border: Border.all(color: Colors.grey[300]!),
+                      color: const Color(0xFFCC0000).withOpacity(0.05),
+                      borderRadius: BorderRadius.circular(15),
+                      border: Border.all(color: const Color(0xFFCC0000).withOpacity(0.2)),
                     ),
-                    child: Column(
+                    child: const Column(
                       children: [
-                        _contactRow(Icons.location_on, 'Samanabad Road, Faisalabad, Pakistan'),
-                        const Divider(height: 32),
-                        _contactRow(Icons.phone, '(041) 8714167'),
-                        const Divider(height: 32),
-                        _contactRow(Icons.language, 'www.sethtufail.com'),
+                        Text(
+                          'جو شخص حلال روزی کماتا ہے، اللہ تعالیٰ اس کے رزق میں برکت عطا فرماتا ہے۔',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xFFCC0000), fontStyle: FontStyle.italic),
+                        ),
+                        SizedBox(height: 8),
+                        Text(
+                          'The one who earns a lawful livelihood, Allah grants blessings in his sustenance.',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 12, color: Colors.grey),
+                        ),
                       ],
                     ),
-                  ),
+                  ).animate().scale(delay: 400.ms),
+                  const SizedBox(height: 40),
+                  _buildSectionTitle('Contact Us', 'رابطہ کریں'),
+                  _contactRow(Icons.location_on, 'Faisalabad, Punjab, Pakistan'),
+                  _contactRow(Icons.language, 'tufailtoka37397-v3.web.app'),
                 ],
               ),
             ),
@@ -98,13 +106,30 @@ class AboutUsScreen extends StatelessWidget {
     );
   }
 
+  Widget _buildMilestone(String year, String text) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 12.0),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(year, style: const TextStyle(fontWeight: FontWeight.bold, color: Color(0xFFCC0000), fontSize: 16)),
+          const SizedBox(width: 16),
+          Expanded(child: Text(text, style: const TextStyle(fontSize: 14))),
+        ],
+      ),
+    );
+  }
+
   Widget _contactRow(IconData icon, String text) {
-    return Row(
-      children: [
-        Icon(icon, color: const Color(0xFFCC0000), size: 24),
-        const SizedBox(width: 16),
-        Expanded(child: Text(text, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14))),
-      ],
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 16.0),
+      child: Row(
+        children: [
+          Icon(icon, color: const Color(0xFFCC0000), size: 24),
+          const SizedBox(width: 16),
+          Expanded(child: Text(text, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14))),
+        ],
+      ),
     );
   }
 }

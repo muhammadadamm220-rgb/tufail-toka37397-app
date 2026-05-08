@@ -162,7 +162,7 @@ class _SplashScreenState extends State<SplashScreen> {
           children: [
             // Branding Logo
             Image.network(
-              'https://sethtufail.com/cdn/shop/files/Logo_Sending.png',
+              'https://tufailtoka37397-v3.web.app/logo.png',
               width: 280,
               height: 280,
               fit: BoxFit.contain,
