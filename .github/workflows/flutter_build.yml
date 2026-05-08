@@ -29,8 +29,9 @@ jobs:
         run: |
           cd mobile
           flutter create . --platforms android --org com.tufail
-          # Ensure the package name matches our Firebase config
+          # Ensure the package name matches our Firebase config and apply google-services plugin
           sed -i 's/com.tufail.tufail_toka_mobile/com.tufail.toka_app/g' android/app/build.gradle
+          echo "apply plugin: 'com.google.gms.google-services'" >> android/app/build.gradle
           flutter pub get
           
       - name: Build APK
