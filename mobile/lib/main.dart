@@ -8,8 +8,10 @@ import 'firebase_options.dart';
 
 // Screen Imports
 import 'screens/home_screen.dart';
+import 'screens/login_screen.dart';
+import 'screens/register_screen.dart';
+import 'screens/about_us_screen.dart';
 import 'screens/product_detail_screen.dart';
-import 'screens/kisaan_corner_screen.dart';
 import 'screens/dealers_screen.dart';
 import 'screens/products_screen.dart';
 import 'screens/order_tracking_screen.dart';
@@ -86,6 +88,10 @@ final _router = GoRouter(
     GoRoute(
       path: '/register',
       builder: (context, state) => const RegisterScreen(),
+    ),
+    GoRoute(
+      path: '/about',
+      builder: (context, state) => const AboutUsScreen(),
     ),
     GoRoute(
       path: '/home',

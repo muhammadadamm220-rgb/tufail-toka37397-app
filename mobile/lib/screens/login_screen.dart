@@ -68,32 +68,29 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(height: 80),
               // App Logo
               Container(
-                width: 150,
-                height: 150,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  shape: BoxShape.circle,
-                  boxShadow: [
-                    BoxShadow(color: Colors.black.withOpacity(0.1), blurRadius: 20)
-                  ]
-                ),
-                child: Center(
-                  child: Text(
-                    '37397',
-                    style: TextStyle(color: Color(0xFFCC0000), fontSize: 40, fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ),
+              Image.network(
+                'https://sethtufail.com/cdn/shop/files/Logo_Sending.png',
+                height: 120,
+              ).animate().scale(duration: 600.ms),
               const SizedBox(height: 24),
               const Text(
-                'SIGN IN',
-                style: TextStyle(fontSize: 28, fontWeight: FontWeight.w900, color: Color(0xFFCC0000)),
+                'SETH M. TUFAIL FOUNDRY',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.w900,
+                  color: Color(0xFFCC0000),
+                  letterSpacing: 1.2,
+                ),
               ),
               const Text(
-                'Welcome back to Seth M. Tufail Foundry',
-                style: TextStyle(color: Colors.grey),
+                'PAKISTAN\'S NO. 1 BRAND | REG: 37397',
+                style: TextStyle(
+                  fontSize: 10,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFFD4AF37),
+                ),
               ),
-              const SizedBox(height: 40),
+              const SizedBox(height: 48),
               TextField(
                 controller: _emailController,
                 decoration: InputDecoration(

@@ -51,7 +51,7 @@ class HomeScreen extends StatelessWidget {
             radius: 20,
             child: Padding(
               padding: const EdgeInsets.all(2),
-              child: Image.network('https://raw.githubusercontent.com/muhammadadamm220-rgb/tufail-toka37397-app/main/logo_transparent.png'),
+              child: Image.network('https://sethtufail.com/cdn/shop/files/Logo_Sending.png'),
             ),
           ),
           const SizedBox(width: 12),
@@ -59,7 +59,7 @@ class HomeScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Welcome, ${user?.displayName ?? user?.email?.split('@')[0] ?? 'User'}',
+                'Welcome, ${user?.displayName ?? user?.email?.split('@')[0] ?? 'Valued Guest'}',
                 style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
               ),
               const Text(
