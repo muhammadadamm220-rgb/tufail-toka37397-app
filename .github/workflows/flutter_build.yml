@@ -28,7 +28,9 @@ jobs:
       - name: Install dependencies
         run: |
           cd mobile
-          flutter create . --platforms android
+          flutter create . --platforms android --org com.tufail
+          # Ensure the package name matches our Firebase config
+          sed -i 's/com.tufail.tufail_toka_mobile/com.tufail.toka_app/g' android/app/build.gradle
           flutter pub get
           
       - name: Build APK
