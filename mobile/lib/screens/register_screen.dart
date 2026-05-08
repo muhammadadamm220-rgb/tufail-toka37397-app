@@ -54,7 +54,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           child: Column(
             children: [
               Image.network(
-                'https://sethtufail.com/cdn/shop/files/Logo_Sending.png',
+                'https://tufailtoka37397-v3.web.app/logo.png',
                 height: 100,
               ),
               const SizedBox(height: 24),

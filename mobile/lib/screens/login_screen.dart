@@ -70,7 +70,7 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(height: 80),
               // App Logo
               Image.network(
-                'https://sethtufail.com/cdn/shop/files/Logo_Sending.png',
+                'https://tufailtoka37397-v3.web.app/logo.png',
                 height: 120,
               ).animate().scale(duration: 600.ms),
               const SizedBox(height: 24),
