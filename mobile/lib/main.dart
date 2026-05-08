@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'firebase_options.dart';
 
 // Screen Imports
 import 'screens/home_screen.dart';
@@ -10,9 +13,8 @@ import 'screens/kisaan_corner_screen.dart';
 import 'screens/dealers_screen.dart';
 import 'screens/products_screen.dart';
 import 'screens/order_tracking_screen.dart';
-
-import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart';
+import 'screens/login_screen.dart';
+import 'screens/register_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -42,27 +44,13 @@ class TufailApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(
           seedColor: const Color(0xFFCC0000),
           primary: const Color(0xFFCC0000),
-          secondary: const Color(0xFFD4AF37), // Gold
-          surface: Colors.white,
-          background: const Color(0xFFF8F9FA),
+          secondary: const Color(0xFFD4AF37),
         ),
-        scaffoldBackgroundColor: const Color(0xFFF8F9FA),
-        fontFamily: 'Poppins',
         appBarTheme: const AppBarTheme(
           backgroundColor: Color(0xFFCC0000),
           foregroundColor: Colors.white,
-          centerTitle: false,
+          centerTitle: true,
           elevation: 0,
-          titleTextStyle: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            letterSpacing: 0.5,
-          ),
-        ),
-        cardTheme: CardTheme(
-          elevation: 4,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-          clipBehavior: Clip.antiAlias,
         ),
       ),
       locale: const Locale('ur', 'PK'),
@@ -88,6 +76,18 @@ final _router = GoRouter(
       builder: (context, state) => const SplashScreen(),
     ),
     GoRoute(
+      path: '/auth-wrapper',
+      builder: (context, state) => const AuthWrapper(),
+    ),
+    GoRoute(
+      path: '/login',
+      builder: (context, state) => const LoginScreen(),
+    ),
+    GoRoute(
+      path: '/register',
+      builder: (context, state) => const RegisterScreen(),
+    ),
+    GoRoute(
       path: '/home',
       builder: (context, state) => const HomeScreen(),
     ),
@@ -106,71 +106,82 @@ final _router = GoRouter(
       path: '/dealers',
       builder: (context, state) => const DealerNetworkScreen(),
     ),
-    GoRoute(
-      path: '/kisaan-corner',
-      builder: (context, state) => const KisaanCornerScreen(),
-    ),
-    GoRoute(
-      path: '/track',
-      builder: (context, state) => const OrderTrackingScreen(),
-    ),
+    // ... other routes
   ],
 );
 
-class SplashScreen extends StatelessWidget {
-  const SplashScreen({super.key});
+class AuthWrapper extends StatelessWidget {
+  const AuthWrapper({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Future.delayed(const Duration(seconds: 3), () {
-      if (context.mounted) {
-        context.go('/home');
-      }
-    });
+    return StreamBuilder<User?>(
+      stream: FirebaseAuth.instance.authStateChanges(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Scaffold(body: Center(child: CircularProgressIndicator()));
+        }
+        if (snapshot.hasData) {
+          return const HomeScreen();
+        }
+        return const LoginScreen();
+      },
+    );
+  }
+}
 
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(seconds: 3), () {
+      if (mounted) context.go('/auth-wrapper');
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFCC0000),
+      backgroundColor: Colors.white,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            // Branding Logo
             Container(
-              width: 150,
-              height: 150,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                shape: BoxShape.circle,
-                border: Border.all(color: const Color(0xFFD4AF37), width: 4),
+              width: 250,
+              height: 250,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: NetworkImage('https://raw.githubusercontent.com/muhammadadamm220-rgb/tufail-toka37397-app/main/logo_transparent.png'), // Temporary until assets are fixed
+                  fit: BoxFit.contain,
+                ),
               ),
               child: const Center(
                 child: Text(
                   '37397',
-                  style: TextStyle(
-                    color: Color(0xFFCC0000),
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: TextStyle(color: Color(0xFFCC0000), fontSize: 48, fontWeight: FontWeight.bold),
                 ),
               ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 32),
             const Text(
               'SETH M. TUFAIL',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                letterSpacing: 2,
-              ),
+              style: TextStyle(color: Color(0xFFCC0000), fontSize: 28, fontWeight: FontWeight.w900, letterSpacing: 2),
             ),
             const Text(
               'FOUNDRY (PVT) LTD.',
-              style: TextStyle(
-                color: Color(0xFFD4AF37),
-                fontSize: 14,
-                fontWeight: FontWeight.w500,
-              ),
+              style: TextStyle(color: Color(0xFFD4AF37), fontSize: 16, fontWeight: FontWeight.bold),
             ),
+            const SizedBox(height: 48),
+            const CircularProgressIndicator(color: Color(0xFFCC0000)),
           ],
         ),
       ),

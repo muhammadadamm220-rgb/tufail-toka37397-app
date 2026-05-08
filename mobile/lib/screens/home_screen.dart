@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lottie/lottie.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -37,32 +38,42 @@ class HomeScreen extends StatelessWidget {
   }
 
   Widget _buildAppBar(BuildContext context) {
+    final user = FirebaseAuth.instance.currentUser;
     return SliverAppBar(
       floating: true,
       pinned: true,
       expandedHeight: 80,
       backgroundColor: const Color(0xFFCC0000),
-      title: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      title: Row(
         children: [
-          const Text(
-            'SETH M. TUFAIL',
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+          CircleAvatar(
+            backgroundColor: Colors.white,
+            radius: 20,
+            child: Padding(
+              padding: const EdgeInsets.all(2),
+              child: Image.network('https://raw.githubusercontent.com/muhammadadamm220-rgb/tufail-toka37397-app/main/logo_transparent.png'),
+            ),
           ),
-          Text(
-            'FOUNDRY (PVT) LTD. | REG: 37397',
-            style: TextStyle(fontSize: 10, color: Colors.white.withOpacity(0.8)),
+          const SizedBox(width: 12),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Welcome, ${user?.displayName ?? user?.email?.split('@')[0] ?? 'User'}',
+                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+              ),
+              const Text(
+                'SETH M. TUFAIL FOUNDRY',
+                style: TextStyle(fontSize: 9, color: Colors.white70, fontWeight: FontWeight.bold),
+              ),
+            ],
           ),
         ],
       ),
       actions: [
         IconButton(
-          icon: const Icon(Icons.notifications_none),
-          onPressed: () {},
-        ),
-        IconButton(
-          icon: const Icon(Icons.language),
-          onPressed: () {},
+          icon: const Icon(Icons.logout, size: 20),
+          onPressed: () => FirebaseAuth.instance.signOut(),
         ),
       ],
     );
