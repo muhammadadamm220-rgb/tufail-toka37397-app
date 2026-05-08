@@ -60,7 +60,7 @@ class OrderTrackingScreen extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: 8),
-                  Text('May 15, 2024', style: TextStyle(fontSize: 24, fontWeight: FontWeight.black, color: Color(0xFFCC0000))),
+                  Text('May 15, 2024', style: TextStyle(fontSize: 24, fontWeight: FontWeight.w900, color: Color(0xFFCC0000))),
                 ],
               ),
             ),

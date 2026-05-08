@@ -117,7 +117,7 @@ class HomeScreen extends StatelessWidget {
                         'SETH MUHAMMAD\nTUFAIL TOKA',
                         style: TextStyle(
                           color: Colors.white,
-                          fontWeight: FontWeight.black,
+                          fontWeight: FontWeight.w900,
                           fontSize: 22,
                           height: 1.1,
                         ),

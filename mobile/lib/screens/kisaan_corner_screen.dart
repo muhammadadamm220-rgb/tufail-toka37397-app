@@ -66,7 +66,7 @@ class KisaanCornerScreen extends StatelessWidget {
                 ),
                 const Text(
                   '041-8549185',
-                  style: TextStyle(color: Color(0xFFD4AF37), fontSize: 24, fontWeight: FontWeight.black),
+                  style: TextStyle(color: Color(0xFFD4AF37), fontSize: 24, fontWeight: FontWeight.w900),
                 ),
                 const SizedBox(height: 16),
                 ElevatedButton(

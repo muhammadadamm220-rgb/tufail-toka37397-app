@@ -52,7 +52,7 @@ class ProductDetailScreen extends StatelessWidget {
                               product['name'],
                               style: const TextStyle(
                                 fontSize: 28,
-                                fontWeight: FontWeight.black,
+                                fontWeight: FontWeight.w900,
                                 letterSpacing: -0.5,
                               ),
                             ).animate().fadeIn().slideX(begin: -0.2),
@@ -82,7 +82,7 @@ class ProductDetailScreen extends StatelessWidget {
                             ),
                             child: const Text(
                               'NO.1 QUALITY',
-                              style: TextStyle(fontWeight: FontWeight.black, fontSize: 10, color: Colors.white),
+                              style: TextStyle(fontWeight: FontWeight.w900, fontSize: 10, color: Colors.white),
                             ),
                           ),
                         ),
@@ -91,7 +91,7 @@ class ProductDetailScreen extends StatelessWidget {
                   const SizedBox(height: 12),
                   Text(
                     'REGISTRATION NO: ${product['reg'] ?? "37397"}',
-                    style: TextStyle(color: Colors.grey[400], fontWeight: FontWeight.black, fontSize: 10, letterSpacing: 1.5),
+                    style: TextStyle(color: Colors.grey[400], fontWeight: FontWeight.w900, fontSize: 10, letterSpacing: 1.5),
                   ).animate().fadeIn(delay: 400.ms),
                   const SizedBox(height: 24),
                   Container(
@@ -114,7 +114,7 @@ class ProductDetailScreen extends StatelessWidget {
                           product['price'],
                           style: const TextStyle(
                             fontSize: 24,
-                            fontWeight: FontWeight.black,
+                            fontWeight: FontWeight.w900,
                             color: Colors.white,
                           ),
                         ),
@@ -124,7 +124,7 @@ class ProductDetailScreen extends StatelessWidget {
                   const SizedBox(height: 40),
                   const Text(
                     'Technical Specifications',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.black),
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900),
                   ).animate().fadeIn(delay: 800.ms),
                   const SizedBox(height: 16),
                   _buildSpecRow('Weight', '850 KG', 0),
@@ -191,7 +191,7 @@ class ProductDetailScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(label, style: const TextStyle(color: Colors.grey, fontWeight: FontWeight.bold, fontSize: 12)),
-          Text(value, style: const TextStyle(fontWeight: FontWeight.black, fontSize: 14)),
+          Text(value, style: const TextStyle(fontWeight: FontWeight.w900, fontSize: 14)),
         ],
       ),
     ).animate().fadeIn(delay: (1000 + (index * 100)).ms).slideX(begin: 0.1);
