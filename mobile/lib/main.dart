@@ -161,21 +161,11 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             // Branding Logo
-            Container(
-              width: 250,
-              height: 250,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: NetworkImage('https://raw.githubusercontent.com/muhammadadamm220-rgb/tufail-toka37397-app/main/logo_transparent.png'), // Temporary until assets are fixed
-                  fit: BoxFit.contain,
-                ),
-              ),
-              child: const Center(
-                child: Text(
-                  '37397',
-                  style: TextStyle(color: Color(0xFFCC0000), fontSize: 48, fontWeight: FontWeight.bold),
-                ),
-              ),
+            Image.network(
+              'https://sethtufail.com/cdn/shop/files/Logo_Sending.png',
+              width: 280,
+              height: 280,
+              fit: BoxFit.contain,
             ),
             const SizedBox(height: 32),
             const Text(
