@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -60,6 +61,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(24.0),
@@ -67,7 +69,6 @@ class _LoginScreenState extends State<LoginScreen> {
             children: [
               const SizedBox(height: 80),
               // App Logo
-              Container(
               Image.network(
                 'https://sethtufail.com/cdn/shop/files/Logo_Sending.png',
                 height: 120,
@@ -76,7 +77,7 @@ class _LoginScreenState extends State<LoginScreen> {
               const Text(
                 'SETH M. TUFAIL FOUNDRY',
                 style: TextStyle(
-                  fontSize: 24,
+                  fontSize: 22,
                   fontWeight: FontWeight.w900,
                   color: Color(0xFFCC0000),
                   letterSpacing: 1.2,
@@ -111,7 +112,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               const SizedBox(height: 24),
               if (_isLoading)
-                const CircularProgressIndicator()
+                const CircularProgressIndicator(color: Color(0xFFCC0000))
               else ...[
                 ElevatedButton(
                   onPressed: _login,
@@ -135,6 +136,14 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ],
               const SizedBox(height: 24),
+              TextButton(
+                onPressed: () => context.go('/home'),
+                child: const Text(
+                  'Browse as Guest | مہمان کے طور پر دیکھیں',
+                  style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),
+                ),
+              ),
+              const SizedBox(height: 16),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
