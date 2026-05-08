@@ -34,6 +34,11 @@ jobs:
           echo "apply plugin: 'com.google.gms.google-services'" >> android/app/build.gradle
           flutter pub get
           
+      - name: Run icon generator
+        run: |
+          cd mobile
+          flutter pub run flutter_launcher_icons:main
+          
       - name: Build APK
         run: |
           cd mobile
